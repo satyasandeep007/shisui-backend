@@ -45,10 +45,10 @@ export function setupBot(token: string) {
         if (reaction === 'like') {
             messageReactions[messageId].like++;
             // Check if the number of likes is 10 or more
-            if (messageReactions[messageId].like >= 10) {
+            if (messageReactions[messageId].like === 10) {
                 // Send a message to the user who sent the original message
                 const userId = messageReactions[messageId].from.id;
-                bot.sendMessage(userId, 'Congratulations! Your message received 10 likes! 👍');
+                bot.sendMessage(userId, 'Congratulations! Your message received 10 likes! You are eligible for a Free NFT for your contributions');
             }
         } else if (reaction === 'dislike') {
             messageReactions[messageId].dislike++;

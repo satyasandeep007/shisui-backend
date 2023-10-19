@@ -32,7 +32,8 @@
     "lusca": "^1.6.1",
     "node-telegram-bot-api": "^0.63.0",
     "request": "^2.88.0",
-    "request-promise": "^4.2.4"
+    "request-promise": "^4.2.4",
+    "twit": "^2.2.11"
   },
   "devDependencies": {
     "@types/body-parser": "^1.17.1",

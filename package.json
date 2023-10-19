@@ -29,6 +29,8 @@
     "dotenv": "^8.2.0",
     "errorhandler": "^1.5.1",
     "express": "^4.17.1",
+    "firebase": "^10.5.0",
+    "firebase-admin": "^11.11.0",
     "lusca": "^1.6.1",
     "node-telegram-bot-api": "^0.63.0",
     "request": "^2.88.0",

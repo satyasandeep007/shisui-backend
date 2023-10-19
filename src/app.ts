@@ -1,6 +1,5 @@
 import express from "express";
 import lusca from "lusca";
-import flash from "express-flash";
 import clientRoutes from "./routes/routes";
 import { setupBot } from "./utils/telegramBot";
 
@@ -8,7 +7,6 @@ const app = express();
 
 app.set("port", 5000);
 
-app.use(flash());
 app.use(lusca.xframe("SAMEORIGIN"));
 app.use(lusca.xssProtection(true));
 

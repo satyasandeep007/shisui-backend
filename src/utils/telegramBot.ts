@@ -1,4 +1,4 @@
-import { editMessageReaction } from '../controllers/firebase';
+import { addNftReward, editMessageReaction } from '../controllers/firebase';
 import { getMessageReaction } from '../controllers/firebase';
 import { addMessageReaction } from '../controllers/firebase';
 
@@ -76,10 +76,38 @@ export function setupBot(bot: any) {
             if (reaction === 'like') {
                 messageReaction.likes++;
                 // Check if the number of likes is 10 or more
-                if (messageReaction.likes === 10) {
+                const userChatId = messageReaction.userId;
+                const userTelegramId = messageReaction.userTelegramId;
+
+                if (messageReaction.likes === 5) {
+                    await addNftReward({
+                        star: 1,
+                        userChatId,
+                        userTelegramId,
+                        isClaimed: false
+                    })
                     // Send a message to the user who sent the original message
-                    const userTelegramId = messageReaction.userTelegramId;
-                    bot.sendMessage(userTelegramId, 'Congratulations! Your message received 10 likes! You are eligible for a Free NFT for your contributions');
+                    bot.sendMessage(userChatId, `🎉 Congratulations! Your message received 5 likes! 🌟 You've been rewarded with a 1-star NFT! Claim your NFT now at http://localhost:4000/home. Hurry, it's waiting just for you! 🚀`);
+                }
+                else if (messageReaction.likes === 10) {
+                    await addNftReward({
+                        star: 3,
+                        userChatId,
+                        userTelegramId,
+                        isClaimed: false
+                    })
+                    // Send a message to the user who sent the original message
+                    bot.sendMessage(userChatId, `🎉 Congratulations! Your message received 10 likes! 🌟 You've been rewarded with a 3-star NFT! Claim your NFT now at http://localhost:4000/home. Hurry, it's waiting just for you! 🚀`);
+                }
+                else if (messageReaction.likes === 20) {
+                    await addNftReward({
+                        star: 5,
+                        userChatId,
+                        userTelegramId,
+                        isClaimed: false
+                    })
+                    // Send a message to the user who sent the original message
+                    bot.sendMessage(userChatId, `🎉 Congratulations! Your message received 20 likes! 🌟 You've been rewarded with a 5-star NFT! Claim your NFT now at http://localhost:4000/home. Hurry, it's waiting just for you! 🚀`);
                 }
             } else if (reaction === 'dislike') {
                 messageReaction.dislikes++;

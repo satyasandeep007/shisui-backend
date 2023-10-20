@@ -86,3 +86,8 @@ export const getUserOtpById = async (userTelegramId: string) => {
     console.log(docs, "docs");
     return docs; // Return the array of documents.
 }
+
+export const addNftReward = async (item: any) => {
+    const nftRewardsCollection = await db.collection('nftRewards')
+    await nftRewardsCollection.add(item);
+}

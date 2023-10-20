@@ -49,3 +49,40 @@ export const getMessageReaction = async (messageId: string) => {
     console.log(docs, "docs");
     return docs[0]; // Return the array of documents.
 }
+
+export const getMessageReactionsById = async (userTelegramId: string) => {
+    const messageReactionsCollection = await db.collection('messageReactions');
+    const querySnapshot = await messageReactionsCollection.where('userTelegramId', '==', userTelegramId).get();
+
+    // Initialize an empty array to store the documents.
+    const docs: any = [];
+
+    // Iterate through the query snapshot and add the data of each document to the 'docs' array.
+    querySnapshot.forEach((doc: any) => {
+        docs.push(doc.data()); // Add the data of the document.
+    });
+
+    console.log(docs, "docs");
+    return docs; // Return the array of documents.
+}
+
+export const addUserOtp = async (item: any) => {
+    const user = await db.collection('users')
+    await user.add(item);
+}
+
+export const getUserOtpById = async (userTelegramId: string) => {
+    const user = await db.collection('users');
+    const querySnapshot = await user.where('userTelegramId', '==', userTelegramId).get();
+
+    // Initialize an empty array to store the documents.
+    const docs: any = [];
+
+    // Iterate through the query snapshot and add the data of each document to the 'docs' array.
+    querySnapshot.forEach((doc: any) => {
+        docs.push(doc.data()); // Add the data of the document.
+    });
+
+    console.log(docs, "docs");
+    return docs; // Return the array of documents.
+}

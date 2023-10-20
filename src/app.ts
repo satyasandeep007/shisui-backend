@@ -2,8 +2,9 @@ import express from "express";
 import lusca from "lusca";
 import clientRoutes from "./routes/routes";
 import { setupBot } from "./utils/telegramBot";
-import { twitterBot } from "./utils/twitterBot";
 import dotenv from "dotenv"
+import TelegramBot from 'node-telegram-bot-api';
+
 const path = require("path");
 const envPath = path.join(__dirname, "../.env");
 console.log(envPath, "envPath");
@@ -20,7 +21,7 @@ app.use(clientRoutes);
 
 // Initialize the bot with your bot token
 const botToken = process.env.TELEGRAM_BOT_TOKEN
-if (botToken) setupBot(botToken);
-// twitterBot()
+export const tgBot = new TelegramBot(botToken, { polling: true });
+if (botToken) setupBot(tgBot);
 
 export default app;

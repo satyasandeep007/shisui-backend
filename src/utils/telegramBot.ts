@@ -1,4 +1,3 @@
-import TelegramBot from 'node-telegram-bot-api';
 import { editMessageReaction } from '../controllers/firebase';
 import { getMessageReaction } from '../controllers/firebase';
 import { addMessageReaction } from '../controllers/firebase';
@@ -12,8 +11,7 @@ interface MessageReaction {
     userTelegramId: string;
 }
 
-export function setupBot(token: string) {
-    const bot = new TelegramBot(token, { polling: true });
+export function setupBot(bot: any) {
     console.log("Telegram Bot is started and running");
 
     bot.on('message', async (msg: any) => {

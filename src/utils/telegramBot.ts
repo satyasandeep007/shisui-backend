@@ -88,7 +88,7 @@ export function setupBot(bot: any) {
           // Send a message to the user who sent the original message
           bot.sendMessage(
             userChatId,
-            `🎉 Congratulations! Your message received 5 likes! 🌟 You've been rewarded with a 1-star NFT! Claim your NFT now at http://localhost:4000/home?nftType=1. Hurry, it's waiting just for you! 🚀`
+            `🎉 Congratulations! Your message received 5 likes! 🌟 You've been rewarded with a 1-star NFT! Claim your NFT now at http://localhost:3000/home?nftType=1. Hurry, it's waiting just for you! 🚀`
           );
         } else if (messageReaction.likes === 10) {
           await addNftReward({
@@ -100,7 +100,7 @@ export function setupBot(bot: any) {
           // Send a message to the user who sent the original message
           bot.sendMessage(
             userChatId,
-            `🎉 Congratulations! Your message received 10 likes! 🌟 You've been rewarded with a 3-star NFT! Claim your NFT now at http://localhost:4000/home?nftType=3. Hurry, it's waiting just for you! 🚀`
+            `🎉 Congratulations! Your message received 10 likes! 🌟 You've been rewarded with a 3-star NFT! Claim your NFT now at http://localhost:3000/home?nftType=3. Hurry, it's waiting just for you! 🚀`
           );
         } else if (messageReaction.likes === 20) {
           await addNftReward({
@@ -112,7 +112,7 @@ export function setupBot(bot: any) {
           // Send a message to the user who sent the original message
           bot.sendMessage(
             userChatId,
-            `🎉 Congratulations! Your message received 20 likes! 🌟 You've been rewarded with a 5-star NFT! Claim your NFT now at http://localhost:4000/home?nftType=5. Hurry, it's waiting just for you! 🚀`
+            `🎉 Congratulations! Your message received 20 likes! 🌟 You've been rewarded with a 5-star NFT! Claim your NFT now at http://localhost:3000/home?nftType=5. Hurry, it's waiting just for you! 🚀`
           );
         }
       } else if (reaction === "dislike") {

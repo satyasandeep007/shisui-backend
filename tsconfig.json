@@ -8,6 +8,9 @@
         "moduleResolution": "node",
         "sourceMap": true,
         "outDir": "dist",
+        "skipDefaultLibCheck": true,
+        "noEmit": false,
+        "noEmitOnError": false,
         "baseUrl": ".",
         "paths": {
             "*": [

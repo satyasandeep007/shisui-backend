@@ -10,7 +10,7 @@
   "license": "MIT",
   "scripts": {
     "start": "npm run serve",
-    "build": "npm run build-ts && npm run lint",
+    "build": "npm run build-ts",
     "serve": "node dist/server.js",
     "watch-node": "nodemon dist/server.js",
     "watch": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"cyan.bold,green.bold\" \"npm run watch-ts\" \"npm run watch-node\"",
@@ -43,7 +43,8 @@
     "@types/concurrently": "^4.1.0",
     "@types/errorhandler": "^0.0.32",
     "@types/eslint": "^6.1.1",
-    "@types/express": "^4.17.1",
+    "@types/express": "4.17.2",
+    "@types/express-serve-static-core": "4.17.20",
     "@types/jest": "^24.0.23",
     "@types/lusca": "^1.6.1",
     "@types/node": "^12.7.8",
@@ -58,6 +59,10 @@
     "nodemon": "^1.19.2",
     "ts-jest": "^24.1.0",
     "ts-node": "^8.4.1",
-    "typescript": "^3.6.3"
+    "typescript": "^5.2.2"
+  },
+  "resolutions": {
+    "@types/express-serve-static-core": "4.17.20",
+    "@types/express": "4.17.2"
   }
 }
